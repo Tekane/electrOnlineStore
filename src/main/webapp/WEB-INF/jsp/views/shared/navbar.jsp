@@ -5,13 +5,13 @@
 		<div id="responsive-nav">
 			<!-- NAV -->
 			<ul class="main-nav nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Hot Deals</a></li>
-				<li><a href="#">Categories</a></li>
-				<li><a href="#">Laptops</a></li>
-				<li><a href="#">Smartphones</a></li>
-				<li><a href="#">Cameras</a></li>
-				<li><a href="#">Accessories</a></li>
+				<li id="home"><a href="${contextRoot}/index">Home</a></li>
+				<li id="hot-deal"><a href="#">Hot Deals</a></li>
+				<li id="allProducts"><a href="${contextRoot}/allProducts">View Products</a></li>
+				<li id="laptops"><a href="#">Laptops</a></li>
+				<li id="smartphones"><a href="#">Smartphones</a></li>
+				<li id="cameras"><a href="#">Cameras</a></li>
+				<li id="accessories"><a href="#">Accessories</a></li>
 			</ul>
 			<!-- /NAV -->
 		</div>

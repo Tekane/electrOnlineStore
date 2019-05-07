@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,9 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 	<title>PTS Online Store ${title}</title>
+	<script>
+		window.menu = '${title}';
+	</script>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -51,18 +56,15 @@
 <!-- NAVIGATION -->
 <%@include file="./shared/navbar.jsp"%>
 <!-- /NAVIGATION -->
-
-<!-- COLLECTION-->
-<%@include file="./shared/collection.jsp"%>
-<!-- /COLLECTION -->
-
-<!-- New Products-->
-<%@include file="./shared/new_products.jsp"%>
-<!-- /New Products -->
-
-<!-- HOT DEAL SECTION -->
-<%@include file="./shared/hot_deals.jsp"%>
-<!-- /HOT DEAL SECTION -->
+<!-- loading the home content -->
+<!-- CONTAINER -->
+<c:if test= "${userClickHome == true}">
+	<%@include file="home.jsp"%>
+</c:if>
+<!-- /CONTAINER -->
+<c:if test="${userClickAllProducts== true}">
+	<%@include file="allProducts.jsp"%>
+</c:if>
 
 <!-- TOP SELLING1 -->
 <%@include file="./shared/top_selling1.jsp"%>
@@ -87,5 +89,6 @@
 <script src="js/nouislider.min.js"></script>
 <script src="js/jquery.zoom.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/myapp.js"></script>
 </body>
 </html>

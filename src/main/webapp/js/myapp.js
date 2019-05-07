@@ -1,1 +1,11 @@
-alert("Hello! I am an alert box!!");
+$(function () {
+    //creating active menu
+    switch (menu) {
+        case 'allProducts':
+            $('#allProducts').addClass('active');
+            break;
+        default:
+                $('#home').addClass('active');
+            break;
+    }
+});
