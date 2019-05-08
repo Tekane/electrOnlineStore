@@ -19,6 +19,7 @@
 				<div class="header-search">
 					<form>
 						<select class="input-select">
+						    	<option value="select">Categories</option>
 								<c:forEach items="${categories}" var="category">
 									<option value="${category.name}">${category.name}</option>
 								</c:forEach>
