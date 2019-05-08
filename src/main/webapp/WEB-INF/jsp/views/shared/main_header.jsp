@@ -18,14 +18,19 @@
 			<div class="col-md-6">
 				<div class="header-search">
 					<form>
-						<select class="input-select">
+						<select class="input-select" id="my_selection">
 						    	<option value="select">Categories</option>
 								<c:forEach items="${categories}" var="category">
-									<option value="${category.name}">${category.name}</option>
+									<option value="${category.name}" href="${contextRoot}/show/category/${category.id}/products" id="a_${category.name}">${category.name}</option>
 								</c:forEach>
 						</select>
 						<input class="input" placeholder="Search here">
 						<button class="search-btn">Search</button>
+                        <script>
+                            document.getElementById('my_selection').onchange = function() {
+                                window.location.href = this.children[this.selectedIndex].getAttribute('href');
+                            }
+                        </script>
 					</form>
 				</div>
 			</div>
