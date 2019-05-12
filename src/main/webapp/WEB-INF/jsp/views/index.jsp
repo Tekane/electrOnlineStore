@@ -11,6 +11,7 @@
 	<title>PTS Online Store ${title}</title>
 	<script>
 		window.menu = '${title}';
+		window.contextRoot = '${contextRoot}';
 	</script>
 
 	<!-- Google font -->
@@ -31,6 +32,12 @@
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+
+	<!--Adding bootstrap dataTable-->
+	<link type="text/css" rel="stylesheet" href="/css/dataTables.bootstrap.css"/>
+
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -88,7 +95,11 @@
 <script src="/js/slick.min.js"></script>
 <script src="/js/nouislider.min.js"></script>
 <!-- DataTable plugin-->
-
+<script src="/js/jquery.dataTables.js"></script>
+<script src="/js/dataTables.bootstrap.js"></script>
+<!-- DataTable Plugin -->
+<<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script><%@include file="/js/nouislider.min.js"%></script>
 <script src="/js/jquery.zoom.min.js"></script>
 <script src="/js/main.js"></script>

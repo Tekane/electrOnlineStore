@@ -18,7 +18,7 @@ public class JsonDataController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/products")
+    @GetMapping("/allProducts")
     public List<Product> getProducts(){
         return productService.getAllProducts();
     }
