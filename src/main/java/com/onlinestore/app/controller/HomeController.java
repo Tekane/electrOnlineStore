@@ -1,7 +1,9 @@
 package com.onlinestore.app.controller;
 
 import com.onlineStoreBackend.model.Category;
+import com.onlineStoreBackend.model.Product;
 import com.onlineStoreBackend.service.CategoryService;
+import com.onlineStoreBackend.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -22,6 +24,8 @@ public class HomeController {
 
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private ProductService productService;
 
     @GetMapping({"/index","/"})
     public String hello(Model model) {
@@ -40,7 +44,6 @@ public class HomeController {
         //return all categories
         model.addAttribute("categories",this.categoryService.getCategories());
 
-
         model.addAttribute("userClickAllProducts",true);
         return "/views/index";
     }
@@ -57,5 +60,21 @@ public class HomeController {
         model.setViewName("/views/index");
 
         return model;
+    }
+
+    @GetMapping("/show/{id}/product")
+    public ModelAndView getSingleProduct(@PathVariable(value = "id") int id){
+        ModelAndView model = new ModelAndView();
+        Product product =  productService.getProductById(id);
+        product.setViews(product.getViews() + 1);
+
+        //update view count
+        productService.updateProduct(product.getId(),product);
+
+        model.addObject("title",product.getName());
+        model.addObject("product",product);
+        model.addObject("userClickGetProduct",true);
+        model.setViewName("/views/index");
+        return  model;
     }
 }

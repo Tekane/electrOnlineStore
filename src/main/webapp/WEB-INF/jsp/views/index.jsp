@@ -76,6 +76,9 @@
 <c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 	<%@include file="allProducts.jsp"%>
 </c:if>
+<c:if test="${userClickGetProduct == true}">
+	<%@include file="singleProduct.jsp"%>
+</c:if>
 <!-- /CONTAINER -->
 
 <!-- TOP SELLING1 -->
