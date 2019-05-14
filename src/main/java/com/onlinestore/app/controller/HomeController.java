@@ -4,6 +4,8 @@ import com.onlineStoreBackend.model.Category;
 import com.onlineStoreBackend.model.Product;
 import com.onlineStoreBackend.service.CategoryService;
 import com.onlineStoreBackend.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -27,9 +29,13 @@ public class HomeController {
     @Autowired
     private ProductService productService;
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
+
     @GetMapping({"/index","/"})
-    public String hello(Model model) {
+    public String index(Model model) {
         model.addAttribute("title","Home");
+        LOGGER.info("Inside HomeController index method - INFO ");
+        LOGGER.debug("Inside HomeController index method- DEBUG");
         model.addAttribute("categories",this.categoryService.getCategories());
         model.addAttribute("userClickHome",true);
         return "/views/index";
