@@ -14,7 +14,7 @@
 		window.contextRoot = '${contextRoot}';
 	</script>
 
-	<style><%@include file="/css/myapp.css"%></style>
+    <style><%@include file="/css/myapp.css"%></style>
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -78,6 +78,9 @@
 </c:if>
 <c:if test="${userClickGetProduct == true}">
 	<%@include file="singleProduct.jsp"%>
+</c:if>
+<c:if test="${userClickManageProducts == true}">
+	<%@include file="manageProduct.jsp"%>
 </c:if>
 <!-- /CONTAINER -->
 

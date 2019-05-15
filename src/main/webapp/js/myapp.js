@@ -7,6 +7,9 @@ $(function () {
         case 'Mobile':
             $('#Mobile').addClass('active');
             break;
+        case 'Manage Products':
+            $('#manageProducts').addClass('active');
+            break;
         default:
                 $('#listProducts').addClass('active');
                 $('#a_'+menu).addClass('active');
@@ -76,6 +79,14 @@ $(function () {
 
             ]
         });
+    }
+
+    //dismissing the alert after 2 seconds
+   var $alert = $('.alert')
+    if ($alert.length){
+        setTimeout(function () {
+            $alert.fadeOut('slow');
+        },2000)
     }
 
 });
