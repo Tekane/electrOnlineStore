@@ -21,7 +21,7 @@
 						<label class="control-label col-md-4">Enter Product Name:</label>
 						<div class="col-md-8">
 							<sf:input type="text" path="name" id="name" placeholder="Product Name" class="form-control"/>
-							<span class="error text-danger">Please enter product name!</span>
+							<sf:errors path="name" cssClass="help-block" cssStyle="color: red" element="em"></sf:errors>
 						</div>
 					</div>
 
@@ -29,7 +29,7 @@
 							<label class="control-label col-md-4">Enter brand Name:</label>
 							<div class="col-md-8">
 								<sf:input type="text" path="brand" id="brand" placeholder="Brand Name" class="form-control"/>
-								<span class="error text-danger">Please Enter brand name!</span>
+								<sf:errors path="brand" cssClass="help-block" cssStyle="color: red" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -37,6 +37,7 @@
                             <label class="control-label col-md-4" for="description">Product description:</label>
                             <div class="col-md-8">
                                 <sf:textarea path="description" id="description" row="5" placeholder="Write a description"></sf:textarea>
+								<sf:errors path="description" cssClass="help-block" cssStyle="color: red" element="em"></sf:errors>
                             </div>
                         </div>
 
@@ -44,7 +45,7 @@
 							<label class="control-label col-md-4" for="unitPrice">Enter unit price:</label>
 							<div class="col-md-8">
 								<sf:input type="number" id="unitPrice" path="unitPrice" placeholder="Unit price in &#82;" class="form-control"/>
-								<span class="error text-danger">Please Enter unit price in &#82;!</span>
+								<sf:errors path="unitPrice" cssClass="help-block" cssStyle="color: red" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -52,7 +53,7 @@
 							<label class="control-label col-md-4" for="quantity">Quantity Available:</label>
 							<div class="col-md-8">
 								<sf:input type="number" id="quantity" path="quantity" placeholder="Quantity Available"  class="form-control"/>
-								<span class="error text-danger">Please Enter quantity</span>
+								<sf:errors path="quantity" cssClass="help-block" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -64,7 +65,6 @@
 									itemLabel ="name"
 									itemValue ="id"
 							></sf:select>
-								<span class="error text-danger">Please select category</span>
 							</div>
 						</div>
 

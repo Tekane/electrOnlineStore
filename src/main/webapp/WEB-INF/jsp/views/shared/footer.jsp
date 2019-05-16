@@ -79,7 +79,7 @@
 						<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
 					</ul>
 					<span class="copyright">
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved Tekane<i class="fa fa-heart-o" aria-hidden="true"></i> </a>
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved for Tekane<i class="fa fa-heart-o" aria-hidden="true"></i> </a>
 
 					</span>
 				</div>

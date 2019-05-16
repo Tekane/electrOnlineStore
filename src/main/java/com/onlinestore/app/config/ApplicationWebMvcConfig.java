@@ -22,9 +22,9 @@ public class ApplicationWebMvcConfig implements WebMvcConfigurer {
         return viewResolver;
     }
 
-   /* @Override
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**").addResourceLocations("");
-    }*/
+    }
 
 }
