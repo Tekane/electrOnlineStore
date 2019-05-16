@@ -16,7 +16,9 @@
 				</div>
 				<div  class="panel-body">
 					<!-- Form Elements -->
-					<sf:form class="form-horizontal" modelAttribute="product" action="${contextRoot}/manage/products" method="post">
+					<sf:form class="form-horizontal" modelAttribute="product" action="${contextRoot}/manage/products" method="post"
+					enctype="multipart/form-data">
+
 					<div class="form-group">
 						<label class="control-label col-md-4">Enter Product Name:</label>
 						<div class="col-md-8">
@@ -28,7 +30,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-4">Enter brand Name:</label>
 							<div class="col-md-8">
-								<sf:input type="text" path="brand" id="brand" placeholder="Brand Name" class="form-control"/>
+								<sf:input  path="brand" id="brand" placeholder="Brand Name" class="form-control"/>
 								<sf:errors path="brand" cssClass="help-block" cssStyle="color: red" element="em"></sf:errors>
 							</div>
 						</div>
@@ -44,7 +46,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-4" for="unitPrice">Enter unit price:</label>
 							<div class="col-md-8">
-								<sf:input type="number" id="unitPrice" path="unitPrice" placeholder="Unit price in &#82;" class="form-control"/>
+								<sf:input id="unitPrice" path="unitPrice" placeholder="Unit price in &#82;" class="form-control"/>
 								<sf:errors path="unitPrice" cssClass="help-block" cssStyle="color: red" element="em"></sf:errors>
 							</div>
 						</div>
@@ -52,8 +54,15 @@
 						<div class="form-group">
 							<label class="control-label col-md-4" for="quantity">Quantity Available:</label>
 							<div class="col-md-8">
-								<sf:input type="number" id="quantity" path="quantity" placeholder="Quantity Available"  class="form-control"/>
+								<sf:input  id="quantity" path="quantity" placeholder="Quantity Available"  class="form-control"/>
 								<sf:errors path="quantity" cssClass="help-block" element="em"></sf:errors>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="file">Upload Image:</label>
+							<div class="col-md-8">
+								<sf:input type="file" id="file" path="file"  class="form-control"/>
 							</div>
 						</div>
 

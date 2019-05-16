@@ -4,6 +4,7 @@ import com.onlineStoreBackend.model.Category;
 import com.onlineStoreBackend.model.Product;
 import com.onlineStoreBackend.service.CategoryService;
 import com.onlineStoreBackend.service.ProductService;
+import com.onlinestore.app.multipartFile.FileUpload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -55,7 +57,8 @@ public class ProductManagementController {
     }
 
     @PostMapping("/products")
-    public String createProduct(@Valid @ModelAttribute("product") Product product , BindingResult bindingResult , Model model){
+    public String createProduct(@Valid @ModelAttribute("product") Product product , BindingResult bindingResult , Model model,
+                                HttpServletRequest request){
         //Check if the form has errors
         if (bindingResult.hasErrors()){
             model.addAttribute("title","Manage Products");
@@ -64,6 +67,12 @@ public class ProductManagementController {
         }
         LOGGER.info(product.toString());
         productService.createProduct(product);
+
+        //Check if the user uploaded the image
+        if(!product.getFile().getOriginalFilename().equals("")){
+             FileUpload.uploadFile(request,product.getFile(),product.getCode());
+        }
+
         return "redirect:/manage/products?operation=product";
     }
 }
