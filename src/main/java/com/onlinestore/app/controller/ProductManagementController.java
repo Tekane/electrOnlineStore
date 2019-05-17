@@ -5,6 +5,7 @@ import com.onlineStoreBackend.model.Product;
 import com.onlineStoreBackend.service.CategoryService;
 import com.onlineStoreBackend.service.ProductService;
 import com.onlinestore.app.multipartFile.FileUpload;
+import com.onlinestore.app.validator.ProductValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,12 +60,17 @@ public class ProductManagementController {
     @PostMapping("/products")
     public String createProduct(@Valid @ModelAttribute("product") Product product , BindingResult bindingResult , Model model,
                                 HttpServletRequest request){
+
+        //validating uploaded images
+        new ProductValidator().validate(product,bindingResult);
+
         //Check if the form has errors
         if (bindingResult.hasErrors()){
             model.addAttribute("title","Manage Products");
             model.addAttribute("userClickManageProducts",true);
             return "/views/index";
         }
+
         LOGGER.info(product.toString());
         productService.createProduct(product);
 

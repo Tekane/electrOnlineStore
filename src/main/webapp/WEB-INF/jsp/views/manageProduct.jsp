@@ -55,7 +55,7 @@
 							<label class="control-label col-md-4" for="quantity">Quantity Available:</label>
 							<div class="col-md-8">
 								<sf:input  id="quantity" path="quantity" placeholder="Quantity Available"  class="form-control"/>
-								<sf:errors path="quantity" cssClass="help-block" element="em"></sf:errors>
+								<sf:errors path="quantity" cssClass="help-block" cssStyle="color: red" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -63,6 +63,7 @@
 							<label class="control-label col-md-4" for="file">Upload Image:</label>
 							<div class="col-md-8">
 								<sf:input type="file" id="file" path="file"  class="form-control"/>
+								<sf:errors path="file" cssClass="help-block" cssStyle="color: red" element="em"></sf:errors>
 							</div>
 						</div>
 
