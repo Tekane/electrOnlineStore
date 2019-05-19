@@ -60,9 +60,14 @@ public class ProductManagementController {
     @PostMapping("/products")
     public String createProduct(@Valid @ModelAttribute("product") Product product , BindingResult bindingResult , Model model,
                                 HttpServletRequest request){
-
         //validating uploaded images
-        new ProductValidator().validate(product,bindingResult);
+        if (product.getId() == 0) {
+            new ProductValidator().validate(product, bindingResult);
+        }else {
+            if (!product.getFile().getOriginalFilename().equals("")){
+                new ProductValidator().validate(product, bindingResult);
+            }
+        }
 
         //Check if the form has errors
         if (bindingResult.hasErrors()){
@@ -72,7 +77,13 @@ public class ProductManagementController {
         }
 
         LOGGER.info(product.toString());
-        productService.createProduct(product);
+        if (product.getId() == 0){
+            //Create a new product is the id is 0
+            productService.createProduct(product);
+        }else {
+            //Update the product if the id is not 0
+            productService.updateProduct(product.getId(),product);
+        }
 
         //Check if the user uploaded the image
         if(!product.getFile().getOriginalFilename().equals("")){
@@ -80,5 +91,33 @@ public class ProductManagementController {
         }
 
         return "redirect:/manage/products?operation=product";
+    }
+    @PostMapping("/product/{id}/activation")
+    public String handleProductActivation(@PathVariable("id") int id) {
+        Product product = productService.getProductById(id);
+        String isActive = product.getActive();
+        if (isActive.equals("TRUE")) {
+            product.setActive("FALSE");
+        }else {
+            product.setActive("TRUE");
+        }
+        productService.updateProduct(product.getId(), product);
+
+        return product.getActive().equals("TRUE") ? "You have successfully activated the product "+product.getId() : "You have successfully activated the product "+product.getId();
+    }
+
+    @GetMapping("/{id}/product")
+    public ModelAndView editProduct(@PathVariable("id") int id){
+        ModelAndView model = new ModelAndView();
+        model.setViewName("/views/index");
+        model.addObject("userClickManageProducts",true);
+        model.addObject("title","Manage Products");
+
+        Product product = productService.getProductById(id);
+        //Set the products fetched from the Database
+
+        model.addObject("product",product);
+
+        return model;
     }
 }

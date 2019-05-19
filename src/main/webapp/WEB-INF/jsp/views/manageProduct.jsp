@@ -97,4 +97,29 @@
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Available Products</h3>
+			</hr>
+		</div>
+		<div class="col-xs-12">
+			<div style="overflow: auto">
+				<!--Product table for Admin-->
+				<table id="adminProductsTable" class="table table-striped table-bordered">
+					<thead>
+					<tr>
+						<th>Id</th>
+						<th>Image</th>
+						<th>Brand</th>
+						<th>Name</th>
+						<th>Quantity</th>
+						<th>Unit Price</th>
+						<th>Active</th>
+						<th>Edit</th>
+					</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>

@@ -20,7 +20,7 @@ public class JsonDataController {
 
     @GetMapping("/allProducts")
     public List<Product> getProducts(){
-        return productService.getAllProducts();
+        return productService.getActiveProducts();
     }
 
     @GetMapping("/category/{id}/products")
@@ -32,5 +32,10 @@ public class JsonDataController {
     public ResponseEntity<Product> getProductById(@PathVariable(value = "id") int id){
         Product product = productService.getProductById(id);
         return ResponseEntity.ok().body(product);
+    }
+
+    @GetMapping("/admin/allProducts")
+    public List<Product> getAllProductsForAdmin(){
+        return productService.getAllProducts();
     }
 }

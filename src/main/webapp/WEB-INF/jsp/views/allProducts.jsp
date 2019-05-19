@@ -31,7 +31,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
-						<table id="productListTable" class="table table-striped table-bordered ">
+						<table id="productListTable" class="table table-striped table-bordered">
 							<thead>
 							<tr>
                                 <th></th>

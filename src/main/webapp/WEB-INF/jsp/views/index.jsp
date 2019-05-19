@@ -114,6 +114,7 @@
 <script><%@include file="/js/nouislider.min.js"%></script>
 <script src="/js/jquery.zoom.min.js"></script>
 <script src="/js/main.js"></script>
+<script><%@include file="/js/bootbox.min.js"%></script>
 <script><%@include file="/js/myapp.js"%></script>
 </body>
 </html>
