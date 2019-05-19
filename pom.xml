@@ -41,18 +41,22 @@
         <dependency>
             <groupId>org.webjars.bower</groupId>
             <artifactId>jquery</artifactId>
+            <version>3.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>angularjs</artifactId>
+            <version>1.7.4</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
+            <version>0.34</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
+            <version>4.3.1</version>
         </dependency>
         <dependency>
             <groupId>javax.validation</groupId>
@@ -61,6 +65,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
+            <version>6.0.14.Final</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
