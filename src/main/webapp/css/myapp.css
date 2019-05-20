@@ -2,7 +2,7 @@
     width: 110px;
     height: 80px;
 }
-.help-block{
+.help-block {
     color: #ff0000;
 }
 #description{
@@ -50,4 +50,7 @@ input:checked + .slider{
 }
 input:checked + .slider {
     transform: translateX(20px);
+}
+.error{
+    color: red;
 }

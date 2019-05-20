@@ -198,6 +198,42 @@ $(function () {
             }
         });
     }
+
+    //Validation code for category
+    var $categoryForm = $('#categoryForm');
+
+    if ($categoryForm.length){
+        $($categoryForm ).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                description: {
+                    required: true,
+                    minlength: 5
+                }
+            },
+            messages: {
+                name: {
+                    required:'Please add the category name! ',
+                    minLength: 'The category name should not be less than 2 characters'
+                },
+                description: {
+                    required:'Please add a description for this category!'
+                },
+
+                errorElement: 'em',
+                errorPlacement: function (error , element) {
+                    //class of the help-block
+                    error.addClass('error');
+                    element.css('background', '#ff0000');
+                    //add the error element after the input element
+                    error.insertAfter(element);
+                }
+            }
+       });
+    }
 });
 
 //Code for jquery DataTable

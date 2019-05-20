@@ -21,14 +21,14 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/manage")
-public class ProductManagementController {
+public class ManagementController {
 
     @Autowired
     private ProductService productService;
     @Autowired
     private CategoryService  categoryService;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductManagementController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ManagementController.class);
 
     @GetMapping("/products")
     public ModelAndView manageProduct(@RequestParam(value = "operation" , required = false) String operation){
@@ -45,6 +45,9 @@ public class ProductManagementController {
         if (operation != null){
             if (operation.equals("product")){
                 model.addObject("message","Product submitted successfully");
+            }
+            else if (operation.equals("category")){
+                model.addObject("message","Category submitted successfully");
             }
         }
 
@@ -119,5 +122,14 @@ public class ProductManagementController {
         model.addObject("product",product);
 
         return model;
+    }
+    @ModelAttribute("category")
+    public Category getCategory(){
+        return new Category();
+    }
+    @PostMapping("/category")
+    public String addCategory(@ModelAttribute Category category){
+        categoryService.addCategory(category);
+        return "redirect:/manage/products?operation=category";
     }
 }
